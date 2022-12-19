@@ -26,11 +26,11 @@ public class PersonController {
     public Person getPerson(@PathVariable Long id){
         return personRepository.findOne(id);
     }
-    @GetMapping("/people")
+    @GetMapping
     public Iterable<Person> getPersonList(){
         return personRepository.findAll();
     }
-    @PostMapping
+    @PutMapping
     public Person updatePerson(@PathVariable Long id, @RequestBody Person p){
         Person updatePerson = personRepository.findOne(id);
         updatePerson.setFirstName(p.getFirstName());
