@@ -10,13 +10,22 @@ import org.springframework.context.annotation.Bean;
 public class CRUDApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CRUDApplication.class, args);
+		try {
+			SpringApplication.run(CRUDApplication.class, args);
+		}
+		catch (Exception e){
+
+		}
 	}
 
 	@Bean
 	ServletRegistrationBean h2servletRegistration(){
-		ServletRegistrationBean registrationBean = new ServletRegistrationBean( new WebServlet());
-		registrationBean.addUrlMappings("/console/*");
-		return registrationBean;
+		try {
+			ServletRegistrationBean registrationBean = new ServletRegistrationBean(new WebServlet());
+			registrationBean.addUrlMappings("/console/*");
+			return registrationBean;
+		}
+		catch (Exception e) {}
+		return null;
 	}
 }
